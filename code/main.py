@@ -3,14 +3,14 @@ import sqlite3
 from vlrAPI import vlrAPI
 from vlrAPI import valEsportsAPI
 
-bot = discord.Bot()
-testGuild = "1340995376055976030"
-teamRegions = ["na", "eu", "br", "ap", "kr", "ch", "jp", "lan", "las", "oce", "mn", "gc", "all"]
-primaryRegions = ['Asia-Pacific', 'Americas', 'China', 'EMEA']
-eSportsAPP = valEsportsAPI()
-con = sqlite3.connect("data/vlr.db")
-cur = con.cursor()
-cur.execute("CREATE TABLE movie(title, year, score)")
+#bot = discord.Bot()
+#testGuild = "1340995376055976030"
+#teamRegions = ["na", "eu", "br", "ap", "kr", "ch", "jp", "lan", "las", "oce", "mn", "gc", "all"]
+#primaryRegions = ['Asia-Pacific', 'Americas', 'China', 'EMEA']
+#eSportsAPP = valEsportsAPI()
+#con = sqlite3.connect("data/vlr.db")
+#cur = con.cursor()
+#cur.execute("CREATE TABLE teams(title, year, score)")
 
 def initialiseDatabase():
     # Teams table
