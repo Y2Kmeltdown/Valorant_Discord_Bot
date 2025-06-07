@@ -107,11 +107,12 @@ class valEsportsAPI():
         return r.json()
     
     # TODO Get this working not necessary
-    def players(self, page:int, limit:int, event_series, event, region:str, country:str, minrounds:int, minrating:int, agent:str, map, timespan:str, playerid:int = None):
+    def players(self, page:int = 1, limit:int = 10, event_series = "all", event = "all", region:str = "all", country:str = "all", minrounds:int = 200, minrating:int = 1550, agent:str = "all", map = "all", timespan:str = "60d", playerid:int = None):
         if playerid is not None:
             req = self.baseURL + f"/players/{playerid}"
         else:
-            pass
+            #TODO add checks for correct API inputs
+            req = self.baseURL + f"/players?page={page}&limit={limit}&event_series={event_series}&event={event}&region={region}&country={country}&minrounds={minrounds}&minrating={minrating}&agent={agent}&map={map}&timespan={timespan}"
         r = requests.get(url=req, headers=self.contentHeader)
         return r.json()
     
@@ -154,10 +155,14 @@ class valEsportsAPI():
 if __name__ == "__main__":
 
     vlrApp = vlrAPI()
+    esports = valEsportsAPI()
+    data = esports.results()
+    #print(data)
+    print(data["data"][0])
 
     #print(vlrApp.match("upcoming")["data"]["segments"][0])
-    for match in vlrApp.match("upcoming")["data"]["segments"]:
-        print(match)
+    # for match in vlrApp.match("upcoming")["data"]["segments"]:
+    #     print(match)
     #print(vlrApp.match("results")["data"]["segments"])
     
 
